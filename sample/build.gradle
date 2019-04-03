@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion versions.compileSdkVersion
+
     defaultConfig {
         applicationId "com.stfalcon.chatkit.sample"
-        minSdkVersion 14
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,11 +25,10 @@ android {
 }
 
 ext {
-    supportVersion = '27.1.1'
-    picassoVersion = '2.5.2'
-    circleImageViewVersion = '2.2.0'
+    picassoVersion = '2.71828'
+    circleImageViewVersion = '3.0.0'
     shapeImageViewVersion = '0.9.3'
-    circleindicatorVersion = '1.2.2@aar'
+    circleindicatorVersion = '2.1.0'
 }
 
 dependencies {
@@ -40,9 +40,8 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
 
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "com.android.support:cardview-v7:$supportVersion"
-    implementation "com.android.support:design:$supportVersion"
+    implementation "$libDependencies.appcompat"
+    implementation 'com.google.android.material:material:1.0.0'
 
     //Picasso
     implementation "com.squareup.picasso:picasso:$picassoVersion"
